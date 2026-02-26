@@ -16,7 +16,6 @@ public class PhoneNormalizer {
         }
         m.appendTail(sb);
         return sb.toString();
-        // return
     }
 
     private String normalizeWhitespace(String s) {
@@ -33,29 +32,20 @@ public class PhoneNormalizer {
         String digits = raw.replaceAll("\\D+", "");
         if (digits.length() < 7) return raw; // слишком коротко — не номер
 
-        // Определяем код страны
-        String countryCode = TARGET_COUNTRY;
-        String rest = digits;
-        if (digits.length() > 10) {
-            countryCode = digits.substring(0, digits.length() - 10);
-            rest = digits.substring(digits.length() - 10);
-        } else if (digits.length() == 11 && digits.startsWith("8")) {
-            // Российский формат 8XXX... -> код 7
-            countryCode = "7";
-            rest = digits.substring(1);
-        } else if (digits.length() == 10) {
-            // 10 цифр — считаем, что код страны отсутствует
-            rest = digits;
+        // Извлекаем последние 10 цифр (локальный номер)
+        String localNumber;
+        if (digits.length() >= 10) {
+            localNumber = digits.substring(digits.length() - 10);
+        } else {
+            return raw; // недостаточно цифр для нормализации
         }
 
-        // Форматируем оставшиеся 10 цифр: XXX XXX XX XX
-        if (rest.length() >= 10) {
-            String area = rest.substring(0, 3);
-            String part1 = rest.substring(3, 6);
-            String part2 = rest.substring(6, 8);
-            String part3 = rest.substring(8, 10);
-            return String.format("+%s (%s) %s-%s-%s", countryCode, area, part1, part2, part3);
-        }
-        return raw; // на всякий случай возвращаем исходное
+        // Форматируем с целевым кодом страны +1
+        String area = localNumber.substring(0, 3);
+        String part1 = localNumber.substring(3, 6);
+        String part2 = localNumber.substring(6, 8);
+        String part3 = localNumber.substring(8, 10);
+
+        return String.format("+%s (%s) %s-%s-%s", TARGET_COUNTRY, area, part1, part2, part3);
     }
 }
