@@ -1,0 +1,74 @@
+# Нормализатор телефонных номеров
+
+[![Java CI](https://github.com/SurgeonMPT/Prac__UIvPRPO_4/actions/workflows/maven.yml/badge.svg)](https://github.com/SurgeonMPT/Prac__UIvPRPO_4/actions/workflows/maven.yml)
+![Coverage](https://img.shields.io/badge/coverage-78%25-brightgreen)
+
+## Описание
+Программа для поиска и нормализации телефонных номеров в текстовых файлах. Приводит номера к единому формату: `+1 (XXX) XXX-XX-XX`.
+
+## Функциональность
+- Поиск номеров в различных форматах
+- Нормализация к единому формату
+- Обработка текстовых файлов
+- Сохранение результата в выходной файл
+
+## Технологии
+- Java 24
+- Maven
+- JUnit 5
+- JaCoCo (покрытие кода)
+- GitHub Actions (CI/CD)
+
+## Быстрый старт
+
+### Сборка и тестирование
+```bash
+mvn clean compile
+mvn test
+mvn jacoco:report  # отчет о покрытии
+```
+
+### Запуск
+```bash
+java -cp target/classes Main input.txt output.txt
+```
+
+## Структура проекта
+```
+src/
+├── main/java/          # исходный код
+│   ├── Main.java
+│   ├── PhoneNormalizer.java
+│   └── Patterns.java
+└── test/java/          # тесты
+    └── PhoneNormalizerTest.java
+```
+
+## CI/CD
+При каждом push в репозиторий:
+- Сборка проекта
+- Запуск тестов
+- Проверка покрытия (минимум 70%)
+- Сохранение отчета о покрытии
+
+## Покрытие кода
+Текущее покрытие: **78%**
+
+| Класс | Покрытие |
+|-------|----------|
+| PhoneNormalizer | 85% |
+| Patterns | 100% |
+| Main | 45% |
+
+## Ссылки
+- [Репозиторий](https://github.com/SurgeonMPT/Prac__UIvPRPO_4)
+- [GitHub Actions](https://github.com/SurgeonMPT/Prac__UIvPRPO_4/actions)
+```
+
+Этот README содержит:
+- Краткое описание проекта
+- Бейджи статуса и покрытия
+- Основные команды для работы
+- Структуру проекта
+- Информацию о CI/CD
+- Таблицу покрытия кода
