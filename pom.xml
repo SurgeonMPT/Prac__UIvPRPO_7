@@ -15,7 +15,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.organization>surgeonmpt</sonar.organization>
     </properties>
-
     <dependencies>
         <!-- JUnit 5 для тестов -->
         <dependency>
