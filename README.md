@@ -1,8 +1,4 @@
 # Нормализатор телефонных номеров
-
-[![Java CI](https://github.com/SurgeonMPT/Prac__UIvPRPO_4/actions/workflows/maven.yml/badge.svg)](https://github.com/SurgeonMPT/Prac__UIvPRPO_4/actions/workflows/maven.yml)
-![Coverage](https://img.shields.io/badge/coverage-78%25-brightgreen)
-
 ## Описание
 Программа для поиска и нормализации телефонных номеров в текстовых файлах. Приводит номера к единому формату: `+1 (XXX) XXX-XX-XX`.
 
