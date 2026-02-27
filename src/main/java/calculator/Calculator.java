@@ -14,6 +14,10 @@ public class Calculator {
         return a * b;
     }
 
+    public double discriminant(double a, double b, double c) {
+        return b * b - 4 * a * c;
+    }
+
     public double divide(double a, double b) {
         if (b == 0) {
             throw new ArithmeticException("Деление на ноль невозможно");
